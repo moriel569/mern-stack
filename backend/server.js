@@ -1,15 +1,17 @@
 const bodyParser = require("body-parser");
-// const methodOverride = require("method-override");
 const express = require("express");
+const color = require("colors");
 const dotenv = require("dotenv").config();
 const { errorHandler } = require("./middleware/errorMiddleware");
-const port = process.env.PORT || 5000;
+const connectDB = require("./config/db");
 
+connectDB();
+
+const port = process.env.PORT || 5000;
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(methodOverride());
 app.use("/api/goals", require("./routes/goalRoutes"));
 
 app.use(errorHandler);
