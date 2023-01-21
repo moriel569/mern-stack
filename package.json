@@ -1,10 +1,11 @@
 {
   "name": "mern-stack",
   "version": "1.0.0",
+  "proxy": "http://localhost:8000",
   "description": "tutorial",
   "main": "server.js",
   "scripts": {
-    "start": "node backend/server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\" ",
     "server": "nodemon backend/server.js",
     "client": "npm start --prefix frontend"
   },
@@ -20,6 +21,7 @@
     "mongoose": "^6.8.0"
   },
   "devDependencies": {
+    "concurrently": "^7.6.0",
     "nodemon": "^2.0.20"
   }
 }
