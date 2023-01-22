@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const asyncHandler = require("express-async-handler");
 
-const User = require("../model/userModel");
+const User = require("../models/userModel");
 
 const protect = asyncHandler(async function validate(req, res, next) {
   const auhorizationHeader = req.headers.authorization;
